@@ -1,0 +1,12 @@
+from setuptools import setup
+
+setup(
+    name='robustrelativeposepython',
+    version='1.0.0',
+    author='Mercedes Garcia Salguero',
+    author_email='mercedesgarsal@uma.es',
+    description='Python binding for the Robust Relative Pose Problem with central cameras',
+    package_dir={'': '${CMAKE_CURRENT_BINARY_DIR}'},
+    packages=['robustrelativeposepython'],
+    package_data={'': ['*.so']}
+)

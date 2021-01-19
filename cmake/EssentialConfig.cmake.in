@@ -1,0 +1,4 @@
+include(CMakeFindDependencyMacro)
+@Essential_FIND_DEPENDENCY_CALLS@
+include("${CMAKE_CURRENT_LIST_DIR}/@exported_targets_filename@")
+check_required_components("@PROJECT_NAME@")

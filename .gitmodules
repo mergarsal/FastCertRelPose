@@ -1,0 +1,12 @@
+[submodule "dependences/eigen"]
+	path = dependences/eigen
+	url = https://gitlab.com/libeigen/eigen.git
+[submodule "dependences/opengv"]
+	path = dependences/opengv
+	url = https://github.com/laurentkneip/opengv.git
+[submodule "dependences/gncso"]
+	path = dependences/gncso
+	url = https://github.com/mergarsal/GNCSO.git
+[submodule "dependences/Rosen_optimization"]
+	path = dependences/Rosen_optimization
+	url = https://github.com/mergarsal/Optimization.git
