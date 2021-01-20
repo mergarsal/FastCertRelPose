@@ -6,5 +6,7 @@ the Essential library:
 * CMakeLists.txt: basic cmake
 * example_GNC_TNT_essential_matrix: 
         basic example that uses GNC 
-
+        
+*NOTE:* Include inside this folder 
+the library 'Rosen_optimization`
 

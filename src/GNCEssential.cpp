@@ -19,7 +19,7 @@ namespace Essential{
                if (options_.estimation_verbose)
                                         std::cout << "-----------------\n GNC Essential matrix estimation \n-----------------";
 
-               GNCEssentialEstimationResult result;
+               GNCEssentialEstimationResult result = GNCEssentialEstimationResult();
 
 
                Matrix3 E_8pts;
@@ -344,7 +344,7 @@ namespace Essential{
 
               if (options_.estimation_verbose)        std::cout << "Calling GNC function\n";
 
-              GNCResult<Matrix34, weights_t, double> GNCResults;
+              GNCResult<Matrix34, weights_t, double> GNCResults = GNCResult<Matrix34, weights_t, double>();
 
               auto start_opt = high_resolution_clock::now();
               

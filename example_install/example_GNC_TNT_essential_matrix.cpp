@@ -5,12 +5,12 @@
 #include <sstream>
 #include <fstream>
 
-#include "generateCorrespondences.h"
-#include "Essential.h"
-#include "EssentialTypes.h"
-#include "EssentialUtils.h"
+#include "Essential/generateCorrespondences.h"
+#include "Essential/Essential.h"
+#include "Essential/EssentialTypes.h"
+#include "Essential/EssentialUtils.h"
 
-#include "GNCEssential.h"
+#include "Essential/GNCEssential.h"
 
 
 using namespace std;

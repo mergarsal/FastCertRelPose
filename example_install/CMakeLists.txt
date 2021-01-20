@@ -1,4 +1,4 @@
-project(Essential-Example-Inst CXX)
+project(Essential-Example-Inst CXX LANGUAGES C CXX VERSION 1.0.0)
 
 cmake_minimum_required(VERSION 3.1)
 
@@ -21,9 +21,9 @@ endif()
 include_directories(${EIGEN3_INCLUDE_DIR})
 
 
+add_definitions(-march=native)
 
-  
-find_package(Optimization REQUIRED)
+add_subdirectory(Rosen_optimization)
 
 find_package(gncso REQUIRED)
 
@@ -32,8 +32,8 @@ find_package(Essential REQUIRED)
 
 
 # GNC-RTNT  Essential Matrix Estimation
-add_executable(example_GNC_TNT_essential_matrix ${CMAKE_CURRENT_SOURCE_DIR}/example_GNC_TNT_essential_matrix.cpp)
+add_executable(example_GNC_TNT_essential_matrix example_GNC_TNT_essential_matrix.cpp)
 
 # order is important!
 target_link_libraries(example_GNC_TNT_essential_matrix 
-                Essential gncso )
+                Essential Optimization gncso)
