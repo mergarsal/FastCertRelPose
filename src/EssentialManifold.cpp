@@ -48,7 +48,6 @@ namespace Essential{
 
               // We use projection-based retraction, as described in "Projection-Like
               // Retractions on Matrix Manifolds" by Absil and Malick
-              // TODO: Both SO(3) andS(2) have closed form for the exponential!!!
               return project(Y + V);
         }
        

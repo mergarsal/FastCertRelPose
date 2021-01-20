@@ -3,9 +3,7 @@ Original from Opengv.
 Adaptation for the (central case) relative pose problem
 */
 
-
-#ifndef GENRATECORRESPONDENCES_HPP_
-#define GENRATECORRESPONDENCES_HPP_
+#pragma once
 
 #include <stdlib.h>
 #include <vector>
@@ -128,4 +126,4 @@ void createSyntheticExperiment(
 }  // end of essential namespace
 
 
-#endif // end of GENRATECORRESPONDENCES_HPP_
+

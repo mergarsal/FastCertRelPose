@@ -5,27 +5,16 @@
 #include <sstream>
 #include <fstream>
 
-// opengv
-#include <opengv/relative_pose/methods.hpp>
-#include <opengv/relative_pose/CentralRelativeAdapter.hpp>
-#include <opengv/types.hpp>
+#include "generateCorrespondences.h"
+#include "Essential.h"
+#include "EssentialTypes.h"
+#include "EssentialUtils.h"
 
-// from opengv
-#include "random_generators.hpp"
-#include "experiment_helpers.hpp"
-
-
-#include "Essential/generateCorrespondences.h"
-#include "Essential/Essential.h"
-#include "Essential/EssentialTypes.h"
-#include "Essential/EssentialUtils.h"
-
-#include "Essential/GNCEssential.h"
+#include "GNCEssential.h"
 
 
 using namespace std;
 using namespace Eigen;
-using namespace opengv;
 using namespace Essential;
 
 
@@ -39,12 +28,11 @@ int main(int argc, char** argv)
   // save weights from the GNC
   std::ofstream fout_w("GNC_TNT_weights.txt");
   
-  double total_time = 0;
   double N_iter = 1;  
   //set experiment parameters
-  double noise = 0.5;
+  double noise = 0.1;
   size_t n_points = 100;
-  double FoV = 100;  // in degrees
+  double FoV = 150;  // in degrees
   double parallax = 2.0;  // in meters
   double min_depth = 1.;     // in meters
   double max_depth = 8.;       // in meters
@@ -57,7 +45,7 @@ int main(int argc, char** argv)
     {
           Vector3 translation;
           Matrix3 rotation;
-          bearing_vectors_t points_correspondences, points_correspondencesbro;
+          bearing_vectors_t points_correspondences;
           Eigen::MatrixXd points_3D(3, n_points);
           std::vector<int> indices_outliers(1, n_points);
            createSyntheticExperiment(n_points, noise, outlier_fraction, FoV, parallax, min_depth, max_depth, translation, rotation,
@@ -91,9 +79,6 @@ int main(int argc, char** argv)
       options.chosen_initialisation = InitialisationMethod::PTS8_INIT;       
       options.use_preconditioning = Preconditioner::Any;
       options.estimation_verbose = 0;    
-      // options.preconditioned_grad_norm_tol = 1e-04;
-      // options.tol_grad_norm = 1e-04;
-      // InitialisationMethod::PTS8_INIT; // InitialisationMethod::USER_SUPPLIED;
       
       
       
@@ -152,7 +137,6 @@ int main(int argc, char** argv)
       fout << " " << my_result.valid_estimation << std::endl;
       
 
-      total_time += my_result.elapsed_estimation_time;
       std::cout << "Total time: " << my_result.elapsed_estimation_time << std::endl;    
       std::cout << "Error rotation: " << distR(rotation, my_result.R_opt) << std::endl;
       std::cout << "Error translation: " << distT(translation, my_result.t_opt) << std::endl;
@@ -185,7 +169,6 @@ int main(int argc, char** argv)
   fout.close(); 
   // close file for weights
   fout_w.close();  
-  std::cout << "Mean time (total) [microsecs]: " << total_time / N_iter << std::endl;
 
   return 0;
 

@@ -2,8 +2,6 @@ project(Essential-Example-Inst CXX)
 
 cmake_minimum_required(VERSION 3.1)
 
-project(gncso LANGUAGES CXX VERSION 1.0.0)
-
 set(CMAKE_CXX_STANDARD 14) # We require C++ 14 or later
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -24,12 +22,6 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 
 
 
-
-# Import OPENGV
-add_definitions(-march=native)
-find_package(opengv REQUIRED)
-
-
   
 find_package(Optimization REQUIRED)
 
@@ -40,13 +32,8 @@ find_package(Essential REQUIRED)
 
 
 # GNC-RTNT  Essential Matrix Estimation
-add_executable(example_GNC_TNT_essential_matrix ${CMAKE_CURRENT_SOURCE_DIR}/example_GNC_TNT_essential_matrix.cpp
-${CMAKE_CURRENT_SOURCE_DIR}/random_generators.cpp
-${CMAKE_CURRENT_SOURCE_DIR}/experiment_helpers.cpp
-${CMAKE_CURRENT_SOURCE_DIR}/time_measurement.cpp
-)
+add_executable(example_GNC_TNT_essential_matrix ${CMAKE_CURRENT_SOURCE_DIR}/example_GNC_TNT_essential_matrix.cpp)
 
 # order is important!
 target_link_libraries(example_GNC_TNT_essential_matrix 
-                Essential opengv gncso
-                )
+                Essential gncso )

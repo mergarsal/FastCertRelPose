@@ -10,8 +10,6 @@ See original paper
 
 #include <Eigen/Core>
 
-// TODO
-
 
 
 

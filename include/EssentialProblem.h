@@ -1,5 +1,4 @@
-#ifndef _ESSENTIALPROBLEM_H_
-#define _ESSENTIALPROBLEM_H_
+#pragma once
 
 
 
@@ -42,15 +41,12 @@ public:
         ~EssentialProblem();
 
          Matrix9 getDataMatrixC(void) {return data_matrix_C_;}
+         
          void setPointCorrespondences(const bearing_vectors_t & bearing_vectors) {point_correspondences_ = bearing_vectors; number_points_ = bearing_vectors.size();}
 
 
          void setMatrixPrecon(Matrix3 & matrix_precon) {Matrix_precon_ = matrix_precon;}
 
-         void setMatrixPreconRight(Matrix4 & matrix_precon) {Matrix_precon_right_ = matrix_precon;}
-
-         // This precontioner uses P = B^T * C * B, where B is a 9x3 sparse matrix such that vec([t]_x) = B*t
-         Matrix3 computeBTCBPrecon(void);
 
          // Initialize solver with 8 points
          Matrix34 initializeSolver8pts(void);
@@ -61,8 +57,6 @@ public:
          // Pseudo jacobi preconditioner based on the three largest eigenvalues of C
          Matrix3 computePseudoJacobiPrecon(void);
 
-         // Pseudo jacobi preconditioner based on the three largest eigenvalues of C
-         Matrix4 computePseudoJacobiPreconRight(void);
 
         /// ACCESSORS
 
@@ -184,4 +178,4 @@ private:
 
 }  // end of Essential namespace
 
-#endif // _ESSENTIALPROBLEM_H_
+

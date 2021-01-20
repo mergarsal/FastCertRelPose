@@ -20,23 +20,13 @@ target_link_libraries(example_essential_matrix
                       Essential
                       Optimization)
 
-# GNC Naive (no R-TNT) Essential Matrix Estimation
-add_executable(example_GNC_essential_matrix ${CMAKE_CURRENT_SOURCE_DIR}/example_GNC_essential_matrix.cpp)
-target_link_libraries(example_GNC_essential_matrix 
-                        Essential 
-                        gncso
-                        Optimization)
 
 # GNC-RTNT  Essential Matrix Estimation
-add_executable(example_GNC_TNT_essential_matrix ${CMAKE_CURRENT_SOURCE_DIR}/example_GNC_TNT_essential_matrix.cpp
-${CMAKE_CURRENT_SOURCE_DIR}/random_generators.cpp
-${CMAKE_CURRENT_SOURCE_DIR}/experiment_helpers.cpp
-${CMAKE_CURRENT_SOURCE_DIR}/time_measurement.cpp
-)
+add_executable(example_GNC_TNT_essential_matrix ${CMAKE_CURRENT_SOURCE_DIR}/example_GNC_TNT_essential_matrix.cpp) 
+
 target_link_libraries(example_GNC_TNT_essential_matrix 
                 Essential 
                 gncso
-                opengv 
                 Optimization)
  
   

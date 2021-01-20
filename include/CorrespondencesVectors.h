@@ -1,5 +1,4 @@
-#ifndef _CORRESPONDENCESVECTORS_H_
-#define _CORRESPONDENCESVECTORS_H_
+#pragma once
 
 #include <iostream>
 #include <eigen3/Eigen/Dense>
@@ -30,4 +29,4 @@ namespace Essential{
        typedef Eigen::VectorXd weights_t;
 
 }  // end of Esssential namespace
-#endif // _CORRESPONDENCESVECTORS_H_
+

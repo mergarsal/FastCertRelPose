@@ -6,7 +6,5 @@ the Essential library:
 * CMakeLists.txt: basic cmake
 * example_GNC_TNT_essential_matrix: 
         basic example that uses GNC 
-* experiment_helpers, random_generators, time_measurement: 
-        helpers for the scene generation (see opengv)   
 
 

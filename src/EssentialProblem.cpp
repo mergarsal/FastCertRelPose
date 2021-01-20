@@ -82,13 +82,7 @@ namespace Essential{
           return (Rt);
         }
 
-        Matrix4 EssentialProblem::computePseudoJacobiPreconRight(void)
-        {
-                Eigen::JacobiSVD<Matrix9> svd(data_matrix_C_, Eigen::ComputeFullU | Eigen::ComputeFullV);  //faster
-
-                Vector9 svd_diag = svd.singularValues();
-                return ((svd_diag.block<4,1>(0,0)).cwiseInverse().asDiagonal());
-        }
+       
 
         // Compute pseudo Jacobi preconditioner
         Matrix3 EssentialProblem::computePseudoJacobiPrecon(void)
@@ -102,6 +96,7 @@ namespace Essential{
                 return (Matrix3::Identity() / svd_diag(0));
         }
 
+        // TODO
         Matrix3 EssentialProblem::invMtPrecon(Matrix3 & R_init)
         {
                 Matrix3 Mt = createMatrixT(data_matrix_C_, R_init);
@@ -112,13 +107,7 @@ namespace Essential{
         }
 
 
-        // Compute B^T * C * B matrix
-        Matrix3 EssentialProblem::computeBTCBPrecon(void)
-        {
-                B_.setZero();
-                B_(1, 2) = 1; B_(2, 1) = -1; B_(3, 2) = -1; B_(7, 0) = -1; B_(6, 1) = 1; B_(5, 0) = 1;
-                return ((B_.transpose() * data_matrix_C_ * B_).cwiseInverse());
-        }
+      
 
         
         // apply precon to the full X
@@ -130,13 +119,7 @@ namespace Essential{
         }
         
         
-        // 
-        Matrix34 EssentialProblem::preconditionRight(const Matrix34& X, const Matrix34 & Xdot) const
-        {
-             if (use_precon_ == Preconditioner::None)
-                        return Xdot;
-             else       return tangent_space_projection(X,  Xdot * Matrix_precon_right_);
-        }
+     
 
 
         double EssentialProblem::evaluate_objective(const Matrix34 &Y) const {

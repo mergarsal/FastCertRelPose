@@ -5,9 +5,6 @@
 #include <sstream>
 #include <fstream>  // for the file
 
-// #include <opengv/types.hpp>
-// #include <opengv/relative_pose/methods.hpp>
-// #include <opengv/relative_pose/CentralRelativeAdapter.hpp>
 #include "generateCorrespondences.h"
 
 #include "Essential.h"
@@ -70,9 +67,9 @@ int main(int argc, char** argv)
       EssentialEstimationOptions options;
       options.chosen_initialisation = InitialisationMethod::PTS8_INIT;
       options.use_preconditioning = Preconditioner::Dominant_eigenvalues;
-      options.verbose = 0;
-      options.estimation_verbose=0;
-      options.use_idx_relaxation = 0;
+      options.verbose = 1;
+      options.estimation_verbose=1;
+      options.use_idx_relaxation = 6;
               
       EssentialClass my_essential_estimation(points_correspondences, options);
 

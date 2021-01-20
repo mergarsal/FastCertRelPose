@@ -333,7 +333,6 @@ void createSyntheticExperiment(
 
     if (max_ratio_x > tan(FoV * 0.5 * PI / 180))
     {
-        // std::cout << "one of the points is outside the FOV (X-axis)\n";
         n_iters++;
         continue;
     }
@@ -346,7 +345,6 @@ void createSyntheticExperiment(
 
     if (max_ratio_y > tan(FoV * 0.5 * PI / 180))
     {
-        // std::cout << "one of the points is outside the FOV (Y-axis)\n";
         n_iters++;
         continue;
     }

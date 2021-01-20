@@ -1,5 +1,4 @@
-#ifndef _ESSENTIALTYPES_H
-#define _ESSENTIALTYPES_H
+#pragma once
 
 #include <Eigen/Core>
 
@@ -37,4 +36,3 @@ namespace Essential{
                               
 } // end of essential namespace
 
-#endif // end of _ESSENTIALTYPES_H

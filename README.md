@@ -1,56 +1,109 @@
-1. Create folder build
-``` mkdir build ```
-2. Go to build and compile
-``` cd build & cmake .. ```
-3. 
-``` make ```
-4.``` cd bin & ./essential_matrix ```
+# Fast and Robust Relative Pose Estimation for Calibrated Cameras
+
+This repository contains the code 
+for the relative pose estimation 
+between two central and calibrated cameras 
+for the [paper](ADD ARXIV)[1]. 
+
+**Authors:** [Mercedes Garcia-Salguero](http://mapir.uma.es/mapirwebsite/index.php/people/290), [Javier Gonzalez-Jimenez](http://mapir.isa.uma.es/mapirwebsite/index.php/people/95-javier-gonzalez-jimenez)
 
 
-# Known-issues about bindings
-## Matlab
-Current mex files generator only spport up to gcc4.9. 
-
-## Python:
-I dont remember (sth??)
+**License:** [GPLv3](https://raw.githubusercontent.com/mergarsal/FastCertRelPose/main/LICENSE.txt)
 
 
-
-
-
-# How to integrate the ``essential matrix estimation ``
-# into your project  
-
-## Part 1: Install our library 
-0. Create a build folder inside the project folder.
-
-Inside the ``build`` folder, do:
-1. cmake .. & make
-2. sudo make install
-
-By now you should have everything set up with our library 
-
-## Part 2: Use it in your project
-1. Include in your CMakeLists.txt the followig lines: 
-``
-ADD_DEFINITIONS ( -DPQXX_HIDE_EXP_OPTIONAL )
-add_subdirectory(dependences/opt_certifier_relative_pose/C++/Rosen_optimization)
-add_subdirectory(dependences/opt_certifier_relative_pose/C++/GNCSO)
-
-# IMPORT OpenGV library
-add_definitions(-march=native)
-find_package(opengv REQUIRED)
-
-## add essential matrix estimation lib
-find_package(Essential REQUIRED)
-``
-
-2. [NOT SURE] Add the lines 
+If you use this code for your research, please cite:
 ```
-# Expose the include directories for this project
-set(${LIBRARY_TARGET_NAME}_ADD_INCLUDES ${ESSENTIAL_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR} )
+ADD OURS
 ```
 
-3. And add to ``target_link_libraries`` the item: ``Essential``
+Some parts of this repository are based on previous works: 
+1. Matlab & python bindings from [TEASER++](https://arxiv.org/pdf/2001.07715.pdf)
+        ```
+                @article{yang2020teaser,
+                  title={Teaser: Fast and certifiable point cloud registration},
+                  author={Yang, Heng and Shi, Jingnan and Carlone, Luca},
+                  journal={arXiv preprint arXiv:2001.07715},
+                  year={2020}
+                }
+        ```
+2. Scene generation from [opengv](https://github.com/laurentkneip/opengv.git) 
 
-Done!!
+
+
+## Dependences 
+* Eigen 
+ ```
+        sudo apt install libeigen3-dev
+ ```
+
+* Optimization (own fork)
+ ```
+        git clone https://github.com/mergarsal/Optimization.git
+ ```
+* GNCSO 
+```
+        git clone --recursive https://github.com/mergarsal/GNCSO.git 
+```
+
+* OpenGV
+```
+        git clone https://github.com/laurentkneip/opengv.git
+```
+
+
+## Build
+```
+git clone --recursive https://github.com/mergarsal/FastCertRelPose.git
+cd GNCSO
+
+mkdir build & cd build 
+
+cmake .. 
+
+make -jX
+
+```
+
+The compiled examples should be inside the `bin` directory. Run: 
+```
+        ./bin/example_essential_matrix
+```
+ 
+
+
+## Install 
+In `build` folder: 
+```
+        sudo make install
+```
+
+We also provide the uninstall script: 
+```
+        sudo make uninstall
+```
+
+
+
+## How to use the library in your project
+
+See the example in the folder `example_install` 
+for the basic elements. 
+       
+1. In your CMakeLists.txt, add the dependences:
+```
+        find_package(gncso REQUIRED)
+        find_package(opengv REQUIRED)        
+        find_package(Essential REQUIRED)
+```
+
+2. For your executable, add the library in 
+```
+        target_link_libraries(XXX Essential opengv gncso)
+```
+
+
+
+
+
+
+

@@ -230,7 +230,7 @@ namespace Essential{
                 if ((U*Vt).determinant() > 0)  return (U*Vt);
                 else
                 {
-                        // std::cout << "Negative determinant!\n";
+                        // Negative determinant!
                         const Eigen::DiagonalMatrix<double, 3> d(1, 1, -1);
                         return (U*d*Vt);
                 }
@@ -405,7 +405,6 @@ namespace Essential{
         // 5-pt algorithm
         Matrix3 initialize5ptsMinimal(const bearing_vectors_t & points)
         {
-                // std::cout << "Using ONLY points from 5 pt\n"; 
                 // Create adapter for opengv
                 std::vector<opengv::bearingVector_t, Eigen::aligned_allocator<opengv::bearingVector_t> > bearingVectors1, bearingVectors2;
 
@@ -458,7 +457,6 @@ namespace Essential{
         
         Matrix3 initialize5ptsAll(const bearing_vectors_t & points)
         {
-               // std::cout << "Using all points from 5 pt\n"; 
                // Create adapter for opengv
                 std::vector<opengv::bearingVector_t, Eigen::aligned_allocator<opengv::bearingVector_t> > bearingVectors1, bearingVectors2;
 
@@ -716,7 +714,6 @@ namespace Essential{
                                                     std::vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> & bearingVectors1 )
         {
             bearing_vectors_t points_opt;
-            // assert(bearingVectors1.size() == bearingVectors2.size());
 
             double N = bearingVectors1.size();
 
@@ -738,7 +735,6 @@ namespace Essential{
                                                     std::vector<double> & weights_observations)
         {
             bearing_vectors_t points_opt;
-            // assert(bearingVectors1.size() == bearingVectors2.size());
             // TODO Assert dim P1, P2, and W
             double N = bearingVectors1.size();
 
@@ -761,7 +757,6 @@ namespace Essential{
                                                          Eigen::Matrix<double, 1, Eigen::Dynamic> & weights_observations)
         {
             bearing_vectors_t points_opt;
-            // assert(bearingVectors1.size() == bearingVectors2.size());
             // TODO Assert dim P1, P2, and W
             double N = bearingVectors1.cols();
 

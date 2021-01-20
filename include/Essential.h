@@ -1,5 +1,4 @@
-#ifndef _ESSENTIAL_H_
-#define _ESSENTIAL_H_
+#pragma once
 
 #include <functional>
 
@@ -229,4 +228,4 @@ class EssentialClass
 };  //end of essential class
 
 }  // end of essential namespace
-#endif // _ESSENTIAL_H_
+

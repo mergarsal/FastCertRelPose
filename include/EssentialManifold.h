@@ -1,5 +1,4 @@
-#ifndef ESSENTIALMANIFOLD_H
-#define ESSENTIALMANIFOLD_H
+#pragma once
 
 #include <random> // For sampling random points on the manifold
 
@@ -58,4 +57,4 @@ namespace Essential{
     
       };
 } /*end of Essential namespace*/
-#endif // end of ESSENTIALMANIFOLD_H
+

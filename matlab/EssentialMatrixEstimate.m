@@ -1,5 +1,5 @@
 function [struct_output] = EssentialMatrixEstimate(obsi, obsip, weights, varargin)
-%% Add info here
+
 
 
 assert(size(obsi, 1) == 3, 'obsi must be a 3-by-N matrix.')

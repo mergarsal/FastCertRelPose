@@ -103,7 +103,6 @@ namespace Essential{
       // solving
       reduced_Lagrange = A.bdcSvd(Eigen::ComputeThinU | Eigen::ComputeThinV).solve(b);
 
-      // std::cout << "Singular values lagrange:\n" << A.bdcSvd(Eigen::ComputeThinU | Eigen::ComputeThinV).singularValues() << std::endl; 
 
       
       // fill the vector with multipliers
@@ -196,7 +195,6 @@ namespace Essential{
 
       reduced_Lagrange = A.bdcSvd(Eigen::ComputeThinU | Eigen::ComputeThinV).solve(b);
 
-      // std::cout << "Singular values lagrange:\n" << A.bdcSvd(Eigen::ComputeThinU | Eigen::ComputeThinV).singularValues() << std::endl; 
       // fill the vector with multipliers
       Lagrange_multipliers.setZero();
       Lagrange_multipliers(0) = 0.5 * x_opt.transpose() * Q * x_opt;
@@ -377,8 +375,6 @@ namespace Essential{
 
             Vector3 eigenvalues_bottomrightM = ((M.block<3,3>(9, 9)).eigenvalues()).real();
             min_eigenvalue = eigenvalues_bottomrightM.minCoeff(); 
-            // std::cout << "Eigenvalues Mt:\n" << eigenvalues_bottomrightM << std::endl; 
-            // std::cout << "Minimum of this vector:\n" << min_eigenvalue << std::endl; 
             // In many cases, this part fails
             if (min_eigenvalue > tau_)
             {
@@ -387,8 +383,6 @@ namespace Essential{
                 Vector9 eigenvalues_topleft = ((M.block<9,9>(0, 0)).eigenvalues()).real();
                 double min_eigenvalue_topleft = eigenvalues_topleft.minCoeff();
                 // check which one is lower and keep it
-                // std::cout << "Eigenvalues ME:\n" << eigenvalues_topleft << std::endl; 
-                // std::cout << "Minimum of this vector:\n" << min_eigenvalue_topleft << std::endl; 
                 if (min_eigenvalue_topleft < min_eigenvalue) min_eigenvalue = min_eigenvalue_topleft;
             }
 
@@ -424,7 +418,6 @@ namespace Essential{
          // compute dual gap
          dual_gap = f_hat_ - d_hat;
          // Check conditions for optimality
-         // std::cout << "Minimum eigenvalue: " << mu_min << std::endl; 
          if (mu_min > tau_)
             is_opt = true;
         return is_opt;
