@@ -12,12 +12,14 @@ for the [paper](ADD ARXIV)[1].
 
 
 If you use this code for your research, please cite:
+
 ```
 ADD OURS
 ```
 
 Some parts of this repository are based on previous works: 
 1. Matlab & python bindings from [TEASER++](https://arxiv.org/pdf/2001.07715.pdf)
+
         ```
                 @article{yang2020teaser,
                   title={Teaser: Fast and certifiable point cloud registration},
