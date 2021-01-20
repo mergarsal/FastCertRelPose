@@ -61,14 +61,11 @@ int main(int argc, char** argv)
       GNCEssentialEstimationOptions options = GNCEssentialEstimationOptions();
       /* For GNC */ 
       options.gnc_robust = GNCRobustFunction::WELSCH;
-      options.GNC_verbose = 0;
+      options.GNC_verbose = 1;
       options.gnc_factor = 1.10;       // for GM
       options.cost_diff_threshold = 0.000001;  // stop criteria. if the diff between two cost is lower than this value, stop
       options.max_res_tol_sq = 0.00001;  
       options.max_inner_iterations = 2;  // with 4 (even less) you have enough
-      
-      // options.mu_threshold = 1+1e-08;           // for GM
-      // options.mu_threshold = 0.001;             // for TLS
       options.GNClog_iterates = true;              // log weights. NOTE: deactive this because memory
       options.inliers_threshold = 0.9;             // for GM
       options.nr_min_points = 12;
@@ -78,7 +75,7 @@ int main(int argc, char** argv)
       
       options.chosen_initialisation = InitialisationMethod::PTS8_INIT;       
       options.use_preconditioning = Preconditioner::Any;
-      options.estimation_verbose = 0;    
+      options.estimation_verbose = 1;    
       
       
       
