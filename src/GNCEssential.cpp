@@ -356,12 +356,7 @@ namespace Essential{
                    F, QM, metric, retraction, compute_residuals, Rt, initial_weights, problem_matrices, update_params_in_problem_op, initialize_solver_8pt_op, precon, params);
                    break;
                    
-               case GNCRobustFunction::TEMP:
-                   if (options_.estimation_verbose) std::cout << "Calling TEMPERATURE ... \n";
-                   GNCResults = TemperatureSmooth<Matrix34, weights_t, Matrix34, double, ProblemCachedMatrices>(
-                   F, QM, metric, retraction, compute_residuals, Rt, initial_weights, problem_matrices, update_params_in_problem_op, initialize_solver_8pt_op, precon, params);
-                   break;
-                   
+                                 
                case GNCRobustFunction::WELSCH:
                    if (options_.estimation_verbose) std::cout << "Calling Welsch ... \n";
                    GNCResults = WelschGNCSmooth<Matrix34, weights_t, Matrix34, double, ProblemCachedMatrices>(

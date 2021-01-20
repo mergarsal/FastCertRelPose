@@ -43,7 +43,6 @@ namespace Essential {
                   None = 0,
                   TLS,
                   GM,
-                  TEMP,
                   WELSCH,
                   TUKEY,
                   Any,

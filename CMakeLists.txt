@@ -97,7 +97,7 @@ install(  DIRECTORY ${PROJECT_SOURCE_DIR}/dependences/Rosen_optimization/include
           PATTERN "CMakeFiles" EXCLUDE
 )
 
-include_directories(${Optimization_INCLUDE_DIR})
+# include_directories(${Optimization_INCLUDE_DIR})
 
 
 if(DO_GNC)
@@ -173,6 +173,7 @@ target_include_directories(${LIBRARY_TARGET_NAME} PUBLIC
 target_link_libraries(${LIBRARY_TARGET_NAME} 
                         PUBLIC 
                         opengv 
+                        Optimization
                         ${BLAS_LIBRARIES} 
                         ${M} 
                         ${LAPACK} 
