@@ -3,18 +3,25 @@
 This repository contains the code 
 for the relative pose estimation 
 between two central and calibrated cameras 
-for the [paper](ADD ARXIV)[1]. 
+for the [paper](http://arxiv.org/abs/2101.08524) [1]. 
 
 **Authors:** [Mercedes Garcia-Salguero](http://mapir.uma.es/mapirwebsite/index.php/people/290), [Javier Gonzalez-Jimenez](http://mapir.isa.uma.es/mapirwebsite/index.php/people/95-javier-gonzalez-jimenez)
 
 
-**License:** [GPLv3](https://raw.githubusercontent.com/mergarsal/FastCertRelPose/main/LICENSE.txt)
+**License:** [GPLv3](https://raw.githubusercontent.com/mergarsal/FastCertRelPose/main/LICENSE)
 
 
 If you use this code for your research, please cite:
 
 ```
-ADD OURS
+@misc{garciasalguero2021fast,
+      title={Fast and Robust Certifiable Estimation of the Relative Pose Between Two Calibrated Cameras}, 
+      author={Mercedes Garcia-Salguero and Javier Gonzalez-Jimenez},
+      year={2021},
+      eprint={2101.08524},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 
 Some parts of this repository are based on previous works: 
