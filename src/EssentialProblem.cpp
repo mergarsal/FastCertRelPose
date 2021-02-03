@@ -96,7 +96,6 @@ namespace Essential{
                 return (Matrix3::Identity() / svd_diag(0));
         }
 
-        // TODO
         Matrix3 EssentialProblem::invMtPrecon(Matrix3 & R_init)
         {
                 Matrix3 Mt = createMatrixT(data_matrix_C_, R_init);

@@ -221,7 +221,7 @@ namespace Essential{
         unsigned int t1=9; unsigned int t2=10; unsigned int t3=11;
 
         // initialize
-        M = Q;
+        M = 0.5 * Q;
 
 
         // Create the matrices
@@ -308,7 +308,7 @@ namespace Essential{
         unsigned int e3=6; unsigned int e6=7;  unsigned int e9=8;
         unsigned int t1=9; unsigned int t2=10; unsigned int t3=11;
 
-        M = Q;
+        M = 0.5 * Q;
 
         Vector7 Lagrange_multipliers_ext;
         // fill the vector

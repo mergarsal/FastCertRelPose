@@ -24,7 +24,7 @@ int main(int argc, char** argv)
     std::cout << "Essential Matrix Estimation with GNC GM!\n";
 
   // save general results
-  std::ofstream fout("GNC_TNT.txt");
+  std::ofstream fout("GNC_TNT_res.txt");
   // save weights from the GNC
   std::ofstream fout_w("GNC_TNT_weights.txt");
   

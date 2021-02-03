@@ -37,7 +37,8 @@ Vector3 generateRandomPointTruncated(double FoV, double min_depth, double max_de
   // depth
   point3D[2] = min_depth + (max_depth - min_depth) * ( ((double) std::rand() / (double) RAND_MAX));
 
-  double xmax = abs(tan(FoV * 0.5 * PI / 180)) * point3D[2];
+  double xmax = (tan(FoV * 0.5 * PI / 180)) * point3D[2];
+  if (xmax <= 0) xmax *= -1;  
 
   if (!allow_coplanar)
     // update xmax

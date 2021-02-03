@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 {
     std::cout << "Essential Matrix Estimation!\n";
 
-  std::ofstream fout("init_rand.txt");
+  std::ofstream fout("example_basic_res.txt");
   double total_time = 0;
   double N_iter = 1;
   //set experiment parameters
