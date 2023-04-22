@@ -173,7 +173,7 @@ target_include_directories(${LIBRARY_TARGET_NAME} PUBLIC
 target_link_libraries(${LIBRARY_TARGET_NAME} 
                         PUBLIC 
                         opengv 
-                        Optimization
+                        # Optimization
                         ${BLAS_LIBRARIES} 
                         ${M} 
                         ${LAPACK} 
